@@ -22,11 +22,17 @@ public class MainActivity extends AppCompatActivity
     RoomDB database;
     MainAdapter adapter;
 
+    int count = 0; //hasung
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //hasung
+        HttpConnector httpConnector = new HttpConnector();
+        httpConnector.start();
 
         editText = findViewById(R.id.edit_text);
         btAdd = findViewById(R.id.bt_add);
@@ -48,19 +54,39 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                String sText = editText.getText().toString().trim();
-                if (!sText.equals(""))
-                {
-                    MainData data = new MainData();
-                    data.setText(sText);
-                    database.mainDao().insert(data);
+//                String sText = editText.getText().toString().trim();
+//                if (!sText.equals(""))
+//                {
+//                    MainData data = new MainData();
+//                    data.setText(sText);
+//                    database.mainDao().insert(data);
+//
+//                    editText.setText("");
+//
+//                    dataList.clear();
+//                    dataList.addAll(database.mainDao().getAll());
+//                    adapter.notifyDataSetChanged();
+//                }
 
-                    editText.setText("");
-
-                    dataList.clear();
-                    dataList.addAll(database.mainDao().getAll());
-                    adapter.notifyDataSetChanged();
+                //hasung
+                if(count>HttpConnector.APIArray.length){
+                    return;
                 }
+
+                String sText = HttpConnector.APIArray[count];
+
+                MainData data = new MainData();
+                data.setText(sText);
+                database.mainDao().insert(data);
+
+                editText.setText("");
+
+                dataList.clear();
+                dataList.addAll(database.mainDao().getAll());
+                adapter.notifyDataSetChanged();
+
+                count++;
+
             }
         });
 
