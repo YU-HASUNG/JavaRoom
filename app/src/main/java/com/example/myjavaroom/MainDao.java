@@ -21,9 +21,9 @@ public interface MainDao
     @Delete
     void reset(List<MainData> mainData);
 
-    @Query("UPDATE table_name SET text = :sText WHERE ID = :sID")
+    @Query("UPDATE players SET spid = :sText WHERE ID = :sID")
     void update(int sID, String sText);
 
-    @Query("SELECT * FROM table_name")
+    @Query("SELECT * FROM players")
     List<MainData> getAll();
 }

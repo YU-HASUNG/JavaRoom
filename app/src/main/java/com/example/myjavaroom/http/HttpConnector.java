@@ -1,4 +1,8 @@
-package com.example.myjavaroom;
+package com.example.myjavaroom.http;
+
+import static com.example.myjavaroom.MainActivity.APIArray;
+
+import com.example.myjavaroom.crawl.BasicCrawl;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -7,7 +11,6 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
 public class HttpConnector extends Thread{
-    public static String[] APIArray = new String[15];
     int num = 0;
 
     @Override
@@ -26,7 +29,8 @@ public class HttpConnector extends Thread{
                 if(resCode == HTTP_OK) {
                     String line = null;
                     BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                    for(int i=0;i<30;i++){ //216706
+//                    for(int i=0;i<217469;i++){ //216706
+                    for(int i=0;i<217910;i++){ //22.08.26
                         line = reader.readLine();
                         if((i+2)%4==0){
                             String spid = line.substring(14,23);
@@ -35,12 +39,19 @@ public class HttpConnector extends Thread{
                             num++;
                         }
                     }
+                    //System.out.println("마지막 spid"+APIArray[54366]);
+                    System.out.println("마지막 spid"+APIArray[54477]);
                 }
                 conn.disconnect();
+                Thread.sleep(10000);
             }
         }catch (Exception e){
             e.printStackTrace();
         }
+
+        //position,season 얻어오는 crawl Thread
+        BasicCrawl basicCrawl = new BasicCrawl();
+        basicCrawl.start();
     }
 
 }

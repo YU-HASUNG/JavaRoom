@@ -1,19 +1,26 @@
 package com.example.myjavaroom;
 
 import androidx.room.ColumnInfo;
+import androidx.room.Database;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
-@Entity(tableName = "table_name")
+@Entity(tableName = "players")
 public class MainData implements Serializable
 {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    @ColumnInfo(name = "text")
+    @ColumnInfo(name = "spid")
     private String text;
+
+    @ColumnInfo(name = "position")
+    private String position;
+
+    @ColumnInfo(name = "season")
+    private String season;
 
     public int getId()
     {
@@ -33,5 +40,25 @@ public class MainData implements Serializable
     public void setText(String text)
     {
         this.text = text;
+    }
+
+    public String getPosition()
+    {
+        return position;
+    }
+
+    public void setPosition(String position)
+    {
+        this.position = position;
+    }
+
+    public String getSeason()
+    {
+        return season;
+    }
+
+    public void setSeason(String season)
+    {
+        this.season = season;
     }
 }

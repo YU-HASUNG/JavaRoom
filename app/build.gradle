@@ -9,8 +9,8 @@ android {
         applicationId "com.example.myjavaroom"
         minSdk 26
         targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -40,4 +40,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.1.0'
     implementation "androidx.room:room-runtime:2.2.6"
     annotationProcessor "androidx.room:room-compiler:2.2.6"
+
+    //Jsoup
+    implementation 'org.jsoup:jsoup:1.13.1'
 }

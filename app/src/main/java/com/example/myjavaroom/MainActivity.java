@@ -9,9 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myjavaroom.crawl.BasicCrawl;
+import com.example.myjavaroom.http.HttpConnector;
+
 import java.util.ArrayList;
 import java.util.List;
 
+//22.08.19 데이터 추출 한 30개 누락되고 나머지는 성공
 public class MainActivity extends AppCompatActivity
 {
     EditText editText;
@@ -22,7 +26,14 @@ public class MainActivity extends AppCompatActivity
     RoomDB database;
     MainAdapter adapter;
 
-    int count = 0; //hasung
+    //DB에 넣을 정보 저장할 배열 선언
+//    public static String[] APIArray = new String[54367];
+//    public static String[] Season = new String[54367];
+//    public static String[] Position = new String[54367];
+    public static String[] APIArray = new String[54477];
+    public static String[] Season = new String[54477];
+    public static String[] Position = new String[54477];
+    int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -30,7 +41,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //hasung
+        //spid 얻어오는 Http 연결 Thread
         HttpConnector httpConnector = new HttpConnector();
         httpConnector.start();
 
@@ -67,26 +78,39 @@ public class MainActivity extends AppCompatActivity
 //                    dataList.addAll(database.mainDao().getAll());
 //                    adapter.notifyDataSetChanged();
 //                }
+                while (true) {
 
-                //hasung
-                if(count>HttpConnector.APIArray.length){
-                    return;
+                    //if (count > APIArray.length) {
+                    if (count > APIArray.length-1) { //08/26 에러로 인해 -1 추가
+                        System.out.println("이제 그만");
+                        //adapter.notifyDataSetChanged();
+                        break;
+                    } else {
+
+                        String sText = APIArray[count];
+                        String sSeason = Season[count];
+                        String sPosition = Position[count];
+
+                        MainData data = new MainData();
+
+                        data.setText(sText);
+                        data.setSeason(sSeason);
+                        data.setPosition(sPosition);
+
+                        database.mainDao().insert(data);
+                        System.out.println(sText);
+                        System.out.println(sSeason);
+                        System.out.println(sPosition);
+                        System.out.println(count);
+
+                        dataList.clear();
+                        dataList.addAll(database.mainDao().getAll());
+                        //adapter.notifyDataSetChanged();
+
+
+                        count++;
+                    }
                 }
-
-                String sText = HttpConnector.APIArray[count];
-
-                MainData data = new MainData();
-                data.setText(sText);
-                database.mainDao().insert(data);
-
-                editText.setText("");
-
-                dataList.clear();
-                dataList.addAll(database.mainDao().getAll());
-                adapter.notifyDataSetChanged();
-
-                count++;
-
             }
         });
 
