@@ -33,6 +33,10 @@ public class MainActivity extends AppCompatActivity
     public static String[] APIArray = new String[54477];
     public static String[] Season = new String[54477];
     public static String[] Position = new String[54477];
+    public static String[] Position1 = new String[54477];
+    public static String[] Position2 = new String[54477];
+    public static String[] Nation = new String[54477];
+    public static String[] Pay = new String[54477];
     int count = 0;
 
     @Override
@@ -81,7 +85,8 @@ public class MainActivity extends AppCompatActivity
                 while (true) {
 
                     //if (count > APIArray.length) {
-                    if (count > APIArray.length-1) { //08/26 에러로 인해 -1 추가
+                    //if (count > APIArray.length-1) { //08/26 에러로 인해 -1 추가
+                    if (count > 73) { //전체 줄개수 (나누기 4) (빼기 2)
                         System.out.println("이제 그만");
                         //adapter.notifyDataSetChanged();
                         break;
@@ -90,12 +95,20 @@ public class MainActivity extends AppCompatActivity
                         String sText = APIArray[count];
                         String sSeason = Season[count];
                         String sPosition = Position[count];
+                        String sPosition1 = Position1[count];
+                        String sPosition2 = Position2[count];
+                        String sNation = Nation[count];
+                        String sPay = Pay[count];
 
                         MainData data = new MainData();
 
                         data.setText(sText);
                         data.setSeason(sSeason);
                         data.setPosition(sPosition);
+                        data.setPosition1(sPosition1);
+                        data.setPosition2(sPosition2);
+                        data.setNation(sNation);
+                        data.setPay(sPay);
 
                         database.mainDao().insert(data);
                         System.out.println(sText);
