@@ -30,13 +30,13 @@ public class MainActivity extends AppCompatActivity
 //    public static String[] APIArray = new String[54367];
 //    public static String[] Season = new String[54367];
 //    public static String[] Position = new String[54367];
-    public static String[] APIArray = new String[54477];
-    public static String[] Season = new String[54477];
-    public static String[] Position = new String[54477];
-    public static String[] Position1 = new String[54477];
-    public static String[] Position2 = new String[54477];
-    public static String[] Nation = new String[54477];
-    public static String[] Pay = new String[54477];
+    public static String[] APIArray = new String[54649]; //(나누기 4) (플러스 1)
+    public static String[] Season = new String[54649];
+    public static String[] Position = new String[54649];
+    public static String[] Position1 = new String[54649];
+    public static String[] Position2 = new String[54649];
+    public static String[] Nation = new String[54649];
+    public static String[] Pay = new String[54649];
     int count = 0;
 
     @Override
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity
 
                     //if (count > APIArray.length) {
                     //if (count > APIArray.length-1) { //08/26 에러로 인해 -1 추가
-                    if (count > 73) { //전체 줄개수 (나누기 4) (빼기 2)
+                    if (count > 54646) { //전체 줄개수 (나누기 4) (빼기 2)
                         System.out.println("이제 그만");
                         //adapter.notifyDataSetChanged();
                         break;

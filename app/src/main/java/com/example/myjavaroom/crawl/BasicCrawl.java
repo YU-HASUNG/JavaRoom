@@ -24,7 +24,7 @@ public class BasicCrawl extends Thread{
     public void run() {
 
         //for(int i=0; i< MainActivity.APIArray.length; i++) {
-        for(int i=0; i< 74; i++) { //전체 줄개수 (나누기 4) (빼기 1)
+        for(int i=0; i< 54647; i++) { //전체 줄개수 (나누기 4) (빼기 1)
 
 //            position = "N";
             //position1 = "N";
