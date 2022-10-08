@@ -25,6 +25,7 @@ public class BasicCrawl extends Thread{
 
         //for(int i=0; i< MainActivity.APIArray.length; i++) {
         for(int i=0; i< 54647; i++) { //전체 줄개수 (나누기 4) (빼기 1)
+//        for(int i=0; i< 100; i++) { //test
 
 //            position = "N";
             //position1 = "N";
@@ -92,23 +93,73 @@ public class BasicCrawl extends Thread{
             Element nationEtc = nationLine.get(1);
             nation = nationEtc.text();
 
+//            //소속팀 정보
+//            String[] teams = new String[20];
+//            Elements team = doc.getElementsByAttributeValue("class", "data_table");
+//            Elements li = team.select("li");
+//            for(int t=0; t<20; t++){
+//                teams[t] = "";
+//            }
+//            for(int t=0; t<li.size(); t++){
+//                Element teamOne = li.get(t);
+//                if(teamOne.text().contains("~")) {
+//                    teams[t] = teamOne.text().substring(12);
+//                }
+//                else{
+//                    teams[t] = teamOne.text();
+//                }
+//            }
+
+            //소속팀 정보
+            String[] teams = new String[20];
+            Elements team = doc.getElementsByAttributeValue("class", "td club");
+
+            for(int t=0; t<20; t++){
+                teams[t] = "";
+            }
+            for(int t=0; t<team.size(); t++){
+                Element teamOne = team.get(t);
+                teams[t] = teamOne.text();
+            }
 
             //배열에 저장
             MainActivity.Season[i] = season;
-            MainActivity.Position[i] = position;
-            MainActivity.Position1[i] = position1;
-            MainActivity.Position2[i] = position2;
             MainActivity.Nation[i] = nation;
             MainActivity.Pay[i] = pay;
 
-            System.out.println(season);
-            System.out.println(position);
-            System.out.println(position1);
-            System.out.println(position2);
-            System.out.println(nation);
-            System.out.println(pay);
-            System.out.println(i);
-            Log.d("crawl", String.valueOf(i));
+            MainActivity.Position[i] = position;
+            MainActivity.Position1[i] = position1;
+            MainActivity.Position2[i] = position2;
+
+            MainActivity.team1[i] = teams[0];
+            MainActivity.team2[i] = teams[1];
+            MainActivity.team3[i] = teams[2];
+            MainActivity.team4[i] = teams[3];
+            MainActivity.team5[i] = teams[4];
+            MainActivity.team6[i] = teams[5];
+            MainActivity.team7[i] = teams[6];
+            MainActivity.team8[i] = teams[7];
+            MainActivity.team9[i] = teams[8];
+            MainActivity.team10[i] = teams[9];
+            MainActivity.team11[i] = teams[10];
+            MainActivity.team12[i] = teams[11];
+            MainActivity.team13[i] = teams[12];
+            MainActivity.team14[i] = teams[13];
+            MainActivity.team15[i] = teams[14];
+            MainActivity.team16[i] = teams[15];
+            MainActivity.team17[i] = teams[16];
+            MainActivity.team18[i] = teams[17];
+            MainActivity.team19[i] = teams[18];
+            MainActivity.team20[i] = teams[19];
+
+
+//            System.out.println(season);
+//            System.out.println(position);
+//            System.out.println(position1);
+//            System.out.println(position2);
+//            System.out.println(nation);
+//            System.out.println(pay);
+            Log.d("crawl", "crawl"+i);
         }
     }
 }

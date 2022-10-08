@@ -34,6 +34,7 @@ public class HttpConnector extends Thread{
 //                    for(int i=0;i<217469;i++){ //216706
                     //for(int i=0;i<217910;i++){ //22.08.26
                     for(int i=0;i<218594;i++){ //22.10.05
+//                    for(int i=0;i<500;i++){ // test
                         line = reader.readLine();
                         if((i+2)%4==0){
                             String spid = line.substring(14,23);
