@@ -26,7 +26,8 @@ public class BasicCrawl extends Thread{
         //for(int i=0; i< MainActivity.APIArray.length; i++) {
         //todo
         //메모장 줄 개수 (나누기 4) (빼기 1) / 소수점 아래는 버림 처리
-        for(int i=0; i< 59768; i++) {
+        // 244726 / 4 - 1 = 61180.5 -> 61180
+        for(int i=0; i< 61180; i++) {
 
 //            position = "N";
             //position1 = "N";

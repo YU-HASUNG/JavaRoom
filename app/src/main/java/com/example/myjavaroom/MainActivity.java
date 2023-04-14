@@ -32,37 +32,38 @@ public class MainActivity extends AppCompatActivity
     //todo
     //메모장 줄수 (나누기 4) (더하기 1) / 연산 결과 소수점 아래자리 있으면 내림 처리
     // ex) 239078 / 4 + 1 = 59770.5 -> 59770
+    // 244726 / 4 + 1 = 61,182.5 -> 61182
 
     //DB에 넣을 정보 저장할 배열 선언
-    public static String[] APIArray = new String[59770]; //(나누기 4) (플러스 1)
-    public static String[] Season = new String[59770];
-    public static String[] Nation = new String[59770];
-    public static String[] Pay = new String[59770];
+    public static String[] APIArray = new String[61182]; //(나누기 4) (플러스 1)
+    public static String[] Season = new String[61182];
+    public static String[] Nation = new String[61182];
+    public static String[] Pay = new String[61182];
 
-    public static String[] Position = new String[59770];
-    public static String[] Position1 = new String[59770];
-    public static String[] Position2 = new String[59770];
+    public static String[] Position = new String[61182];
+    public static String[] Position1 = new String[61182];
+    public static String[] Position2 = new String[61182];
 
-    public static String[] team1 = new String[59770];
-    public static String[] team2 = new String[59770];
-    public static String[] team3 = new String[59770];
-    public static String[] team4 = new String[59770];
-    public static String[] team5 = new String[59770];
-    public static String[] team6 = new String[59770];
-    public static String[] team7 = new String[59770];
-    public static String[] team8 = new String[59770];
-    public static String[] team9 = new String[59770];
-    public static String[] team10 = new String[59770];
-    public static String[] team11 = new String[59770];
-    public static String[] team12 = new String[59770];
-    public static String[] team13 = new String[59770];
-    public static String[] team14 = new String[59770];
-    public static String[] team15 = new String[59770];
-    public static String[] team16 = new String[59770];
-    public static String[] team17 = new String[59770];
-    public static String[] team18 = new String[59770];
-    public static String[] team19 = new String[59770];
-    public static String[] team20 = new String[59770];
+    public static String[] team1 = new String[61182];
+    public static String[] team2 = new String[61182];
+    public static String[] team3 = new String[61182];
+    public static String[] team4 = new String[61182];
+    public static String[] team5 = new String[61182];
+    public static String[] team6 = new String[61182];
+    public static String[] team7 = new String[61182];
+    public static String[] team8 = new String[61182];
+    public static String[] team9 = new String[61182];
+    public static String[] team10 = new String[61182];
+    public static String[] team11 = new String[61182];
+    public static String[] team12 = new String[61182];
+    public static String[] team13 = new String[61182];
+    public static String[] team14 = new String[61182];
+    public static String[] team15 = new String[61182];
+    public static String[] team16 = new String[61182];
+    public static String[] team17 = new String[61182];
+    public static String[] team18 = new String[61182];
+    public static String[] team19 = new String[61182];
+    public static String[] team20 = new String[61182];
 
     int count = 0;
 
@@ -116,7 +117,8 @@ public class MainActivity extends AppCompatActivity
                     //todo
                     //메모장 줄수 (나누기 4) (빼기 2) / 연산 결과 소수점 아래자리 있으면 내림 처리
                     //ex) 239078 / 4 - 2 = 59767.5 -> 59767
-                    if (count > 59767) { //전체 줄개수 (나누기 4) (빼기 2)
+                    // 244726 / 4 - 2 = 61179.5 -> 61179
+                    if (count > 61179) { //전체 줄개수 (나누기 4) (빼기 2)
                         Log.d("stop", "이제그만");
                         break;
                     } else {

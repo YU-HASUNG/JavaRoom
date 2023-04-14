@@ -36,7 +36,7 @@ public class HttpConnector extends Thread{
 //                    for(int i=0;i<218594;i++){ //22.10.05
                     //todo
                     //메모장 줄 개수 그대로
-                    for(int i=0;i<239078;i++){ //23.02.17
+                    for(int i=0;i<244711;i++){ //23.04.14
                         line = reader.readLine();
                         if((i+2)%4==0){
                             String spid = line.substring(14,23);
